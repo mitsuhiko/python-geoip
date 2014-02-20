@@ -10,5 +10,5 @@ export PYTHONPATH=`pwd`:`pwd`/..
 python -c "if 1:
     from geoip import geolite2;
     info = geolite2.get_info()
-    print info.date.strftime('%Y%m%d')
+    print info.date.strftime('%Y.%m%d')
 " > VERSION
