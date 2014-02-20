@@ -11,7 +11,7 @@ setup(
     name='python-geoip',
     author='Armin Ronacher',
     author_email='armin.ronacher@active-4.com',
-    version='1.0',
+    version='1.1',
     url='http://github.com/mitsuhiko/python-geoip',
     long_description=readme,
     description='Provides GeoIP functionality for Python.',

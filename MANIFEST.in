@@ -1,2 +1,2 @@
-include README LICENSE
+include README LICENSE setup.cfg
 recursive-include _geoip_geolite2 *
