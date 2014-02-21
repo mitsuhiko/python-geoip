@@ -97,6 +97,15 @@ class IPInfo(object):
         if 'location' in self._data:
             return _native_str(self._data['location'].get('time_zone'))
 
+    @property
+    def location(self):
+        """The location as ``(lat, long)`` tuple if available."""
+        if 'location' in self._data:
+            lat = self._data['location'].get('latitude')
+            long = self._data['location'].get('longitude')
+            if lat is not None and long is not None:
+                return lat, long
+
     def to_dict(self):
         """A dict representation of the available information.  This
         is a dictionary with the same keys as the attributes of this
@@ -108,6 +117,7 @@ class IPInfo(object):
             'continent': self.continent,
             'subdivisions': self.subdivisions,
             'timezone': self.timezone,
+            'location': self.location,
         }
 
     def get_info_dict(self):
@@ -127,12 +137,13 @@ class IPInfo(object):
 
     def __repr__(self):
         return ('<IPInfo ip=%r country=%r continent=%r '
-                'subdivisions=%r timezone=%r>') % (
+                'subdivisions=%r timezone=%r location=%r>') % (
             self.ip,
             self.country,
             self.continent,
             self.subdivisions,
             self.timezone,
+            self.location,
         )
 
 
